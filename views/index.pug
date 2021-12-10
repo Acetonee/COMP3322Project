@@ -1,0 +1,35 @@
+doctype html
+head
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" name="viewport")
+    title Little Bobby Tables Music Shop
+    link(rel="stylesheet" type="text/css" href="/css/index.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="")
+    link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet")
+    script(src="/js/index.js")
+header
+    #toolbar
+        #search-wrapper
+            input#search(type="text" placeholder="Keyword(s)" onkeydown="searchEnter(this)")
+            button(onclick="searchButton()") Search
+        #controls
+            if login
+                button(onclick="location.href='/logout/'") Logout
+            else
+                button(onclick="location.href='/login/'") Login
+                button(onclick="location.href='/register/'") Register
+
+            button(onclick="location.href='/view-cart/'") Cart
+                #cart-count
+main
+
+    aside
+        h3 Categories
+        #categories
+    section
+        h2 Little Bobby Tables Music Shop
+        #location
+            a(href="/") Home
+        h1#status All Music
+        #musics

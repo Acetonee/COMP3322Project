@@ -1,0 +1,42 @@
+mongoose.connect("mongodb+srv://user:correcthorsebatterystaple@cluster0.5bnhm.mongodb.net/musicStore?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, (err) => {
+    if (err) {
+        console.log("MongoDB connection error: " + err);
+    } else {
+        console.log("Connected to MongoDB");
+    }
+});
+
+let musicSchema = mongoose.Schema({
+    "MusicId": Number,
+    "MusicName": String,
+    "Category": String,
+    "Composer": String,
+    "Description": String,
+    "Price": Number,
+    "Published": String,
+    "NewArrival": Boolean
+});
+
+let userSchema = mongoose.Schema({
+    "UserName": String,
+    "Password": String
+});
+
+let cartSchema = mongoose.Schema({
+    "UserName": String,
+    "cart": [
+        {
+            "MusicId": Number,
+            "Quantity": Number
+        }
+    ]
+});
+
+let musicData = mongoose.model("music", musicSchema);
+
+let userData = mongoose.model("user", userSchema);
+
+let cartData = mongoose.model("cart", cartSchema);

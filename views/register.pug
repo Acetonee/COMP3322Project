@@ -1,0 +1,41 @@
+doctype html
+head
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" name="viewport")
+    title Register - Little Bobby Tables Music Shop
+    link(rel="stylesheet" type="text/css" href="/css/musics.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="")
+    link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet")
+    script(src="/js/musics.js")
+header
+    #toolbar
+        #search-wrapper
+            input#search(type="text" placeholder="Keyword(s)" onkeydown="searchEnter(this)")
+            button(onclick="searchButton()") Search
+        #controls
+            if login
+                button(onclick="location.href='/logout/'") Logout
+            else
+                button(onclick="location.href='/login/'") Login
+                button(onclick="location.href='/register/'") Register
+
+            button(onclick="location.href='/view-cart/'") Cart
+                #cart-count
+main
+    #musics
+    h2 Little Bobby Tables Music Shop
+    .sheetContent
+        h1 Register
+        form(action="/register/" method="post")
+            p
+                label New Username:
+                input#username(name="username" placeholder="Desired Username" type="text" value="" required oninvalid="alert('Please do not leave the fields empty')")
+            p
+                label New Password:
+                input#password(name="password" placeholder="Desired Password" type="password" value="" required oninvalid="alert('Please do not leave the fields empty')")
+            input.big.submit.button(name="login" type="submit" value="CONFIRM")
+        p
+            | Have an account?
+            |
+            button(onclick="location.href='/login/'") BACK

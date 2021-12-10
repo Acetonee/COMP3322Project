@@ -1,0 +1,333 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--accent-color-3);
+    background-color: transparent;
+    text-decoration: inherit;
+}
+
+b, strong {
+    font-weight: bolder;
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+img {
+    border-style: none;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+:root {
+    position: relative;
+    color: var(--text-clolor);
+    /*background: var(--background-color) radial-gradient(at top right, var(--background-color), var(--light-background-color) 20%, var(--background-color) 20%, var(--light-background-color) 40%, var(--background-color) 40%, var(--light-background-color) 60%, var(--background-color) 60%, var(--light-background-color) 80%, var(--background-color) 80%, var(--light-background-color));*/
+    background-color: #1e1f20;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #1e1f20 10px), repeating-linear-gradient(#342f3655, #342f36);
+    text-rendering: optimizeLegibility;
+    font-family: "Crimson Pro", "Arial", arial, serif;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5;
+    min-height: 100vh;
+    --text-clolor: #eee;
+    --background-color: #1e1f20;
+    --dark-background-color: #161718;
+    --light-background-color: #28292a;
+    --accent-color-1: #48264d;
+    --accent-color-2: #c252cc;
+    --accent-color-3: #fcccff;
+}
+
+body {
+    margin: 0 auto;
+    width: 100%;
+}
+
+header {
+    display: block;
+    padding: 1em 5%;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1600px;
+}
+
+nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    font-weight: 600;
+    text-align: center;
+    background: var(--background-color) linear-gradient(420.69deg, var(--light-background-color), var(--background-color));
+    z-index: 100;
+}
+
+nav li::marker {
+    content: none;
+}
+
+main {
+    position: relative;
+    display: grid;
+    padding: 0 5%;
+    margin: 0 auto;
+    max-width: 1600px;
+    grid-template-columns: minmax(150px, 85%) minmax(85%, 150px);
+    grid-template-rows: repeat(3, auto) max-content 1fr;
+}
+
+aside {
+    font-size: 1.1em;
+}
+
+img {
+    display: block;
+    position: relative;
+    /*width: 100%;*/
+    max-width: 400px;
+    max-height: 400px;
+    margin: 2em auto;
+}
+
+#toolbar, #categories, #controls {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+#search-wrapper {
+    justify-content: flex-start;
+}
+
+label {
+    display: inline-block;
+    min-width: 10em;
+}
+
+input {
+    color: var(--text-clolor);
+    padding: .5em;
+    margin: .25em;
+    width: clamp(10ch, 20ch, 80vw);
+    border: 1px solid var(--accent-color-2);
+    border-radius: 4px;
+    background: var(--dark-background-color);
+}
+
+input:focus, input:focus-visible {
+    outline: none;
+    box-shadow: 0 0 .5em 0 var(--accent-color-2);
+}
+
+button {
+    display: inline-block;
+    position: relative;
+    color: var(--text-clolor);
+    background: none;
+    border: solid 1px var(--accent-color-2);
+    font-weight: 700;
+    min-width: 100px;
+    padding: .25em;
+    border-radius: 4px;
+    /*border: none;*/
+    margin: .5em;
+    cursor: pointer;
+    transition: background-color .25s;
+    Z-index: 10;
+}
+
+button:hover {
+    background: var(--accent-color-1);
+}
+
+#search {
+    border: none;
+    width: clamp(10ch, 20ch, 50vw);
+}
+
+#cart-count {
+    display: block;
+    position: absolute;
+    color: var(--text-clolor);
+    font-size: .8em;
+    line-height: 1;
+    right: 0;
+    top: 0;
+}
+
+#dropdown-con {
+    display: none;
+}
+
+#dropdown-con.show {
+    display: block;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+    margin: 0 .5em;
+}
+
+.dropdown-content button, .dropbtn, .dropdown-content {
+    padding: .5em 1em;
+    min-width: 8em;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--accent-color-2);
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0 .5em 1em 0 #0005;
+    z-index: 1;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+#status {
+    padding: 0 1em;
+}
+
+#musics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.card {
+    display: inline-block;
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    box-shadow: 0 0 1em 0 #0008;
+    transition: transform .5s, box-shadow .5s;
+}
+
+.card:hover {
+    box-shadow: 0 0 1em 0 var(--accent-color-2);
+    transform: translateY(-.2em);
+}
+
+.music-image {
+    display: block;
+    width: 100%;
+    height: 200px;
+}
+
+.description {
+    display: inline-block;
+    width: 100%;
+    height: 150px;
+    padding: .5em;
+    background: var(--light-background-color);
+}
+
+.new-arrival {
+    color: #ff3333;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-shadow: #000 0 1px .25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-clolor);
+    font-weight: 500;
+    font-style: italic;
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+
+h3 {
+    color: var(--accent-color-3);
+    font-weight: 700;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+@media (max-width: 760px) {
+    #toolbar {
+        /*justify-content: center;*/
+        flex-direction: column-reverse;
+    }
+
+    #musics {
+        justify-content: center;
+    }
+
+    #controls {
+        min-width: 70%;
+        margin: 0 auto;
+    }
+
+    #search-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+    }
+}
+
+@media (max-width: 520px) {
+    main {
+        display: block;
+    }
+
+    #categories {
+        justify-content: space-around;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 400px) {
+    #toolbar button {
+        min-width: 80px;
+    }
+}
+

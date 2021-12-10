@@ -1,0 +1,52 @@
+doctype html
+head
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" name="viewport")
+    title #{data.MusicName} - Little Bobby Tables Music Shop
+    link(rel="stylesheet" type="text/css" href="/css/musics.css")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin="")
+    link(href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet")
+    script(src="/js/musics.js")
+header
+    #toolbar
+        #search-wrapper
+            input#search(type="text" placeholder="Keyword(s)" onkeydown="searchEnter(this)")
+            button(onclick="searchButton()") Search
+        #controls
+            if login
+                button(onclick="location.href='/logout/'") Logout
+            else
+                button(onclick="location.href='/login/'") Login
+                button(onclick="location.href='/register/'") Register
+
+            button(onclick="location.href='/view-cart/'") Cart
+                #cart-count
+main
+    #location #[a(href="/") Home] > #[a(href="/musics/" + data.MusicId + "/") #{data.MusicName}]
+    #musics
+    section#wrapper
+        h1 #{data.MusicName}
+        img(src="/materials/img_" + data.MusicId + ".jpg")
+        audio(controls autoplay muted)
+            source(src="/materials/m" + data.MusicId + ".mp3")
+        p
+            label Composer:
+            span #{data.Composer}
+        p
+            label Published:
+            span #{data.Published}
+        p
+            label Category:
+            span #{data.Category}
+        p
+            label Description:
+            span #{data.Description}
+        p
+            label Price:
+            span #{data.Price}
+
+        h3 Order:
+        input#quantity(type="text" value="1" onkeydown="orderEnter(this)")
+        button#order(onclick="addToCart(" + data.MusicId + ")") Add to Cart
+
